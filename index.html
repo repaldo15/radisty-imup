@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Untuk Radisty 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -20,6 +20,7 @@
       align-items: center;
       min-height: 100vh;
       padding: 20px;
+      flex-direction: column;
     }
     .card {
       background: rgba(0, 0, 0, 0.7);
@@ -30,6 +31,14 @@
       text-align: center;
       box-shadow: 0 8px 25px rgba(0,0,0,0.5);
       animation: fadeIn 2s ease-in-out;
+    }
+    .photo, .gif {
+      margin-top: 20px;
+    }
+    .photo img, .gif img {
+      max-width: 150px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
     h1 {
       font-size: 2em;
@@ -42,6 +51,10 @@
     }
     strong {
       color: #ffd700;
+    }
+    iframe {
+      margin-top: 25px;
+      border: none;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -57,10 +70,19 @@
     <p>Makasih udah sabar banget sama aku...</p>
     <p>❤️ Aku gak akan pernah capek bilang:</p>
     <p style="font-size: 1.4em;"><strong>Aku sayang kamuuu ❤️</strong></p>
-    <hr style="margin: 20px 0; border: none; height: 1px; background: #ffffff44;">
+    <hr style="margin: 20px 0; border: none; height: 1px; background: #ffffff44;" />
     <p>Makasih udah sabar banget sama aku, meskipun aku kadang nyebelin.</p>
     <p>Kamu selalu ada buat aku, dan aku bersyukur banget bisa punya kamu.</p>
     <p>Aku janji gak akan nyia-nyiain kamu. 🌷</p>
+
+    <div class="photo">
+      <img src="https://i.imgur.com/afkI6mS.jpg" alt="Foto Radisty">
+    </div>
+    <div class="gif">
+      <img src="https://media.tenor.com/X2bZLpN7B6cAAAAC/pocoyo-hug.gif" alt="GIF Pocoyo Peluk">
+    </div>
+
+    <iframe src="https://vocaroo.com/embed/1iUEeVZhuDHc?autoplay=0" width="250" height="60" allow="autoplay"></iframe>
   </div>
 </body>
 </html>
