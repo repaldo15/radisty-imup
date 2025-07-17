@@ -2,87 +2,101 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Untuk Radisty 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untuk Radisty 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Quicksand', sans-serif;
-      background: url('https://i.imgur.com/SYLw2GN.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-      flex-direction: column;
-    }
-    .card {
-      background: rgba(0, 0, 0, 0.7);
+      font-family: 'Nunito', sans-serif;
+      background-color: #111;
       color: white;
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 600px;
+      margin: 0;
+      padding: 0 16px;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-      animation: fadeIn 2s ease-in-out;
     }
-    .photo, .gif {
-      margin-top: 20px;
-    }
-    .photo img, .gif img {
-      max-width: 150px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 24px 0;
     }
     h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 28px;
+      color: #fff;
     }
-    p {
-      margin: 10px 0;
-      line-height: 1.6;
-      font-size: 1.1em;
+    .highlight {
+      color: #FFD700;
     }
-    strong {
-      color: #ffd700;
+    .love {
+      color: #ff4d6d;
     }
-    iframe {
-      margin-top: 25px;
-      border: none;
+    .photo, .gif {
+      margin: 20px 0;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .photo img, .gif img {
+      max-width: 100%;
+      border-radius: 16px;
+    }
+    #typing {
+      text-align: left;
+      white-space: pre-wrap;
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.7;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hai sayang, <strong>Radisty</strong> 💖</h1>
-    <p>Kita udah pacaran sejak <strong>18 Mei</strong>.</p>
-    <p>Setiap harinya, kamu selalu kasih aku alasan buat senyum.</p>
-    <p>Makasih udah sabar banget sama aku...</p>
-    <p>❤️ Aku gak akan pernah capek bilang:</p>
-    <p style="font-size: 1.4em;"><strong>Aku sayang kamuuu ❤️</strong></p>
-    <hr style="margin: 20px 0; border: none; height: 1px; background: #ffffff44;" />
-    <p>Makasih udah sabar banget sama aku, meskipun aku kadang nyebelin.</p>
-    <p>Kamu selalu ada buat aku, dan aku bersyukur banget bisa punya kamu.</p>
-    <p>Aku janji gak akan nyia-nyiain kamu. 🌷</p>
+  <audio id="music" src="musik.mp3" autoplay loop></audio>
+  <audio id="typeSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
 
+  <div class="container">
+    <h1>Hai sayang, <span class="highlight">Radisty</span> 💖</h1>
+    <div class="gif">
+      <img src="https://media.tenor.com/vu1eYwEEiY8AAAAM/pocoyo-hug.gif" alt="Pocoyo peluk">
+    </div>
+    <div id="typing"></div>
+    
     <div class="photo">
       <img src="https://i.imgur.com/afkI6mS.jpg" alt="Foto Radisty">
     </div>
-    <div class="gif">
-      <img src="https://media.tenor.com/X2bZLpN7B6cAAAAC/pocoyo-hug.gif" alt="GIF Pocoyo Peluk">
-    </div>
-
-    <iframe src="https://vocaroo.com/embed/1iUEeVZhuDHc?autoplay=0" width="250" height="60" allow="autoplay"></iframe>
   </div>
+
+  <script>
+    const teks = `
+Kita udah pacaran sejak <span class="highlight">18 Mei</span>. 💞
+
+Setiap harinya, kamu selalu kasih aku alasan buat senyum.
+
+Makasih udah sabar banget sama aku...
+❤️ Aku gak akan pernah capek bilang:
+<span class="highlight">Aku sayang kamuuu ❤️</span>
+
+---
+
+Makasih udah sabar banget sama aku, meskipun aku kadang nyebelin.
+Kamu selalu ada buat aku, dan aku bersyukur banget bisa punya kamu.
+Aku janji gak akan nyia-nyiain kamu. 🌷
+    `;
+
+    let i = 0;
+    const speed = 25;
+    const el = document.getElementById("typing");
+    const typeSound = document.getElementById("typeSound");
+
+    function typeWriter() {
+      if (i < teks.length) {
+        let char = teks.charAt(i);
+        el.innerHTML += char;
+        if (char !== ' ' && char !== '\n') typeSound.play();
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    // Start typing after DOM ready
+    document.addEventListener("DOMContentLoaded", function() {
+      typeWriter();
+    });
+  </script>
 </body>
 </html>
